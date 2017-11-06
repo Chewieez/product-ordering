@@ -24,12 +24,28 @@ module.exports = function foo(grunt) {
                 "!node_modules/**/*.js",
             ],
         },
+        uglify: {
+            options: {
+                banner: "/*! <%= pkg.name %> <%= grunt.template.today(\"yyyy-mm-dd\") %> */\n"
+            },
+            build: {
+                files: {
+                    expand: true,
+                    cwd: "script/",
+                    src: "*.js",
+                    dest: "min/",
+                    ext: ".min.js"
+                },
+            }
+        }
     });
 
     // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks("gruntify-eslint");
     grunt.loadNpmTasks("grunt-browserify");
+    grunt.loadNpmTasks("grunt-contrib-uglify");
+    
 
     // Default task(s).
     grunt.registerTask("default", ["eslint", "browserify", "watch"]);
