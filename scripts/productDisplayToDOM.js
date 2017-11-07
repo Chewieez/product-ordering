@@ -1,6 +1,6 @@
 // pull in data from productFactory and reviewFactory modules
-const ProductDatabase = require("./productFactory.js")
-const ReviewDatabase = require("./reviewFactory.js")
+const ProductDatabase = require("./productFactory")
+const ReviewDatabase = require("./reviewFactory")
 
 
 // combine product info for DOM and Review info for DOM and display them together
@@ -9,7 +9,7 @@ const ReviewDatabase = require("./reviewFactory.js")
 let productsDisplayEl = document.getElementById("productsDisplay")
 
 // start building a dom string to display product data
-let productEl = "<h1>Products</h1>"
+let productEl = "<h1 class='product__header'>Products</h1>"
 
 // create function to display product info from database
 const createProductsDisplay = (ProductDatabase, ReviewDatabase) => {
@@ -20,7 +20,7 @@ const createProductsDisplay = (ProductDatabase, ReviewDatabase) => {
         // append to the dom string variable with data from each product in database
         productEl += `
         <article class="product" id="prod_${product.id}">
-            <div class="product__title"><h2>${product.title}</h2></div>
+            <div class="product__title"><h3>${product.title}</h3></div>
             <div class="product__description">${product.description}</div>
             <div class="product__price-quantity">
             <div class="product__price">Price: $${product.price}</div>
@@ -50,5 +50,8 @@ const createProductsDisplay = (ProductDatabase, ReviewDatabase) => {
     productsDisplayEl.innerHTML = productEl
 }
 
-// export the function to create the products display on DOM. When this module is required/loaded in the main.js, this function gets called.
-module.exports = createProductsDisplay(ProductDatabase, ReviewDatabase)
+// invoke function to display products
+createProductsDisplay(ProductDatabase, ReviewDatabase)
+
+
+module.exports = null

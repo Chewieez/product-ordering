@@ -1,5 +1,5 @@
 // pull in data from navbarFactory
-const navbarDatabase = require("./navbarFactory.js")
+const navbarDatabase = require("./navbarFactory")
 
 // get control of the dom element where we will place the contents of the navbar database
 let navbarEl = document.getElementById("navbar")

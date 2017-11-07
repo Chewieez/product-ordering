@@ -45,7 +45,7 @@ const productFactory = (title, description, price, quantity, image) => {
 }
 
 // create products using the product factory
-const rug = productFactory("Area Rug", "Cover and protect your floors with this styling area rug", 125, 10, "http://www.californiadesigns.com/wp-content/uploads/2017/02/rug-.jpeg")
+const rug = productFactory("Area Rug", "Cover and protect your floors with this stylish area rug", 125, 10, "http://www.californiadesigns.com/wp-content/uploads/2017/02/rug-.jpeg")
 
 const couch = productFactory("The Comfiest Couch", "Relax your back while lounging on this super squishy couch", 1000, 20, "http://cozycouchsf.com/wp-content/uploads/2016/03/main-image.jpg")
 
