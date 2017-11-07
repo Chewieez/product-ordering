@@ -20,21 +20,24 @@ const createProductsDisplay = (ProductDatabase, ReviewDatabase) => {
         <article class="product" id="prod_${product.id}">
             <div class="product__title"><h1>${product.title}</h1></div>
             <div class="product__description">${product.description}</div>
-            <div class="product__price">${product.price}</div>
-            <div class="product__quantity">${product.quantity}</div>
-            <div class="product__image"><img src="${product.image}" width="150" alt="${product.title}"></div>
+            <div class="product__price-quantity">
+            <div class="product__price">Price: $${product.price}</div>
+            </div>
+            <div class="product__quantity">Qty: ${product.quantity}</div>
+            <div class="product__image"><img src="${product.image}" width="200" alt="${product.title}"></div>
         `
         
         let matchingReviews = ReviewDatabase.filter(review => product.id === review.productId)
         
-        let productReviews = "<div class='product__reviews'>"
+        let productReviews = "<div class='product__reviews'><h4>Reviews:</h4><blockquote>"
 
         matchingReviews.forEach(review => {
             productReviews += `
-            <p>${review.review} -${review.reviewer}</p>
+            <p>${review.review}  --${review.reviewer}</p>
             `
         })
 
+        productReviews += "</blockquote>"
         productEl += productReviews + "</div></article> <hr>"
     })
 
