@@ -5,7 +5,7 @@ module.exports = function foo(grunt) {
         watch: {
             scripts: {
                 files: ["**/scripts/*.js", "!node_modules/**/*.js"],
-                tasks: ["eslint", "browserify"],
+                tasks: ["eslint", "browserify", "uglify"],
                 options: {
                     spawn: false,
                 },
@@ -29,13 +29,13 @@ module.exports = function foo(grunt) {
                 banner: "/*! <%= pkg.name %> <%= grunt.template.today(\"yyyy-mm-dd\") %> */\n"
             },
             build: {
-                files: {
+                files: [{
                     expand: true,
-                    cwd: "script/",
-                    src: "*.js",
-                    dest: "min/",
+                    cwd: "build/",
+                    src: "bundle.js",
+                    dest: "build/",
                     ext: ".min.js"
-                },
+                }]
             }
         }
     });
@@ -47,6 +47,6 @@ module.exports = function foo(grunt) {
     grunt.loadNpmTasks("grunt-contrib-uglify");
     
 
-    // Default task(s).
-    grunt.registerTask("default", ["eslint", "browserify", "watch"]);
+    // Default task(s) that happen when you type "grunt" in terminal
+    grunt.registerTask("default", ["eslint", "browserify", "uglify", "watch"]);
 };

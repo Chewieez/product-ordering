@@ -1,0 +1,62 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+.navbar {
+    background-color: rgb(155, 155, 155);
+    width: 100%;
+    padding: .5em;
+}
+
+.navbar__container {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar__link-container {
+    display: inline;
+    list-style: none;
+}
+
+.navbar__link {
+    text-decoration: none;
+    color: white;
+    padding-right: .3em;
+    border-right: 1px solid orange;
+}
+
+.navbar__link a:visited {
+    color: white;
+}
+
+.product__image {
+    padding: .3em;
+    border-radius: 10px;
+}
+
+.navbar__link--brand {
+    font-size: 1.5em;
+    border-right: none;
+    margin-right: .3em;    
+}
+
+.productsDisplay {
+    padding: .3em;
+    margin: .3em .6em;
+}
+
+.product__title h3 {
+    margin-bottom: .2em;
+}
+
+.product__reviews h4 {
+    margin-bottom: .2em;
+}
+
+.product__reviews p {
+    margin: .2em 0;
+    font-style: italic;
+}
+
